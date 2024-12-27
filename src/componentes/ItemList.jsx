@@ -8,7 +8,10 @@ function ItemList({ products }) {
           <h2>{product.name}</h2>
           <img src={product.image} alt={product.name} style={{ width: '150px' }} />
           <p>Precio: ${product.price}</p>
-          <Link to={`/item/${product.id}`}>Ver detalles</Link>
+          <p>{product.description}</p>
+          <button>
+            <Link to={`/item/${product.id}`}>Ver detalles</Link>
+          </button>
         </div>
       ))}
     </div>
@@ -16,4 +19,3 @@ function ItemList({ products }) {
 }
 
 export default ItemList;
-

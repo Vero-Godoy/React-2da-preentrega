@@ -2,7 +2,7 @@
 function PageNotFound() {
   return (
     <div>
-        <h1>!Ups! Página no encotrada</h1>
+        <h1>¡Ups! Página no encontrada</h1>
       
     </div>
   )

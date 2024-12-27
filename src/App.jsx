@@ -17,6 +17,8 @@ function App() {
             <Route path='/' element={<NavBar/>}>  
                 <Route index element={<Home/>} />
                 <Route path='itemlistcontainer' element={<ItemListContainer/>} />
+                <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+                <Route path="/products/:categoryId" element={<ItemListContainer />} />
                 <Route path='contactus' element={<ContactUs/>} />
                 <Route path='*' element={<PageNotFound/>} />
             </Route>

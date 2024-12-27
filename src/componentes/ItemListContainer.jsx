@@ -1,46 +1,33 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { products } from '../data/products';
+import { useState } from 'react';
 import ItemList from './ItemList';
+import { products } from '../data/products';
+
+const categorias = {
+  ALIMENTOS: 'Alimentos',
+  ACCESORIOS: 'Accesorios',
+  JUGUETES: 'Juguetes',
+};
 
 function ItemListContainer() {
-  const { categoryId } = useParams();
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (categoryId) {
-        setFilteredProducts(products.filter(product => product.category === categoryId));
-      } else {
-        setFilteredProducts(products);
-        setCategories([...new Set(products.map(product => product.category))]);
-      }
-    }, 500);
 
-    return () => clearTimeout(timeout);
-  }, [categoryId]);
+  const filteredProducts = selectedCategory
+    ? products.filter(product => product.category === selectedCategory)
+    : products;
 
   return (
     <section>
       <h1>Productos</h1>
-      {!categoryId && (
-        <div>
-          <h2>Categorías</h2>
-          <ul>
-            {categories.map(category => (
-              <li key={category}>
-                <Link to={`/productos/${category}`}>{category}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div>
+        <button onClick={() => setSelectedCategory(categorias.ALIMENTOS)}>Alimentos</button>
+        <button onClick={() => setSelectedCategory(categorias.ACCESORIOS)}>Accesorios</button>
+        <button onClick={() => setSelectedCategory(categorias.JUGUETES)}>Juguetes</button>
+        <button onClick={() => setSelectedCategory('')}>Mostrar Todos</button>
+      </div>
       <ItemList products={filteredProducts} />
     </section>
   );
 }
 
 export default ItemListContainer;
-
-

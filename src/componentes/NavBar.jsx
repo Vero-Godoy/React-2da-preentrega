@@ -28,21 +28,22 @@ function NavBar() {
 
   return (
     <>
-        <nav style={styles.navbar}>
-            <ul style={styles.navLinks}>
-                <li>
-                    <Link to={"/"} style={styles.link}>Inicio</Link>
-                </li>
-                <li>
-                    <Link to={"itemlistcontainer"} style={styles.link}>Productos</Link>
-                </li>
-                <li>
-                    <Link to={"contactus"} style={styles.link}>Contacto</Link>
-                </li>
-            </ul>
-            <CartWidget />
-        </nav>
-        <Outlet/>
+      <nav style={styles.navbar}>
+        <div style={styles.logo}>Logo miTienda</div>
+        <ul style={styles.navLinks}>
+          <li>
+            <Link to={"/"} style={styles.link}>Inicio</Link>
+          </li>
+          <li>
+            <Link to={"itemlistcontainer"} style={styles.link}>Productos</Link>
+          </li>
+          <li>
+            <Link to={"contactus"} style={styles.link}>Contacto</Link>
+          </li>
+        </ul>
+        <CartWidget />
+      </nav>
+      <Outlet />
     </>
   )
 
