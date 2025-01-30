@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Home from './componentes/Home';
 import PageNotFound from './componentes/PageNotFound';
 import NavBar from './componentes/NavBar';
 import ItemListContainer from './componentes/ItemListContainer';
 import ItemDetailContainer from './componentes/ItemDetailContainer';
 import ContactUs from './componentes/ContactUs';
+import Firestore from './componentes/Firestore';
+
+
 import './App.css';
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
   )
 
 }
+
+
 
 export default App;
 
